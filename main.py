@@ -4,6 +4,7 @@
 import praw
 from unidecode import unidecode
 from math import ceil
+from time import time
 
 # import additional files
 import config
@@ -25,7 +26,11 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 	# mark any new mention as read
 	reddit.inbox.mark_read([mention])
 	# parse the mention so that we can search for keywords
-	mention_body = unidecode(mention.body.lstrip(config.CMD_PREFIX).casefold().strip())
+	mention_body = unidecode(mention.body.casefold().strip())
+
+	# check to see if the root submission has any awards
+	root_submission = mention.submission
+	if root_submission.
 	# write a response
 	response = 'Yep, this works :)'
 	mention.reply(response)
