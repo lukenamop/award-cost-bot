@@ -2,9 +2,9 @@
 
 # import libraries
 import praw
+import time
 from unidecode import unidecode
 from math import ceil
-from time import time
 
 # import additional files
 import config
@@ -18,6 +18,21 @@ def initialize_reddit():
 	print('reddit object initialized')
 	return reddit
 
+def format_time(number, letter):
+	if letter == 'h':
+		word = 'hour'
+	elif letter == 'd':
+		word = 'day'
+
+	if number == 1:
+		number_string = f'1 {word}'
+	elif number > 1:
+		number_string = f'{number} {word}s'
+	else:
+		number_string = ''
+
+	return number_string
+
 reddit = initialize_reddit()
 
 mentions = reddit.inbox.mentions
@@ -30,8 +45,21 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 
 	# check to see if the root submission has any awards
 	root_submission = mention.submission
+	time_since_submission = time.time() - root_submission.created_utc
+	m, s = divmod(time_since_submission, 60)
+	h, m = divmod(m, 60)
+	d, h = divmod(h, 24)
+	h_string = format_time(h, 'h')
+	d_string = format_time(d, 'd')
+	if d_string == '' or h_string == '':
+		time_string = f'{d_string}{h_string}'
+	else:
+		time_string = f'{d_string}, {h_string}'
+
 	if len(root_submission.all_awardings) > 0:
 		response = 'Okay, nice'
+	else:
+		response = f'As of {time_string} since this post, it doesn\'t look like it has any awards. Feel free to try again later!'
 	# write a response
 	response = 'Yep, this works :)'
 	mention.reply(response)
