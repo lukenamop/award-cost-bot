@@ -19,7 +19,9 @@ def initialize_reddit():
 	return reddit
 
 def format_time(number, letter):
-	if letter == 'h':
+	if letter == 'm':
+		word = 'minute'
+	elif letter == 'h':
 		word = 'hour'
 	elif letter == 'd':
 		word = 'day'
@@ -53,6 +55,8 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 	d_string = format_time(int(d), 'd')
 	if d_string == '' or h_string == '':
 		time_string = f'{d_string}{h_string}'
+		if time_string == '':
+			time_string = format_time(int(m), 'm')
 	else:
 		time_string = f'{d_string}, {h_string}'
 
@@ -63,7 +67,7 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 			coin_total += int(award['coin_price']) * int(award['count'])
 
 		cash_total = ceil(coin_total / config.COIN_QUANT) * config.QUANT_PRICE
-		response = f'The estimated price of awards on this submission is ${cash_total}, as of {time_string} since it was posted.'
+		response = f'The estimated price of awards on this submission is ${cash_total} ({time_string} since submission).'
 	else:
 		response = f'As of {time_string} since this submission, it doesn\'t look like it has any awards. Feel free to try again later!'
 
