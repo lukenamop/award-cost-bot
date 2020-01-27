@@ -17,6 +17,8 @@ def initialize_reddit():
 	print('reddit object initialized')
 	return reddit
 
+reddit = initialize_reddit()
+
 mentions = reddit.inbox.mentions
 # iterate through all mentions, indefinitely
 for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
