@@ -71,7 +71,7 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 	else:
 		response = f'As of {time_string} since this submission, it doesn\'t look like it has any awards. Feel free to try again later!'
 
-	reponse_tail = '\n\n^^^Please ^^^DM ^^^me ^^^if ^^^there ^^^is ^^^a ^^^problem! ^^^A ^^^human ^^^will ^^^receive ^^^direct ^^^messages.'
+	response_tail = '\n\n^^^Please ^^^DM ^^^me ^^^if ^^^there ^^^is ^^^a ^^^problem! ^^^A ^^^human ^^^will ^^^receive ^^^direct ^^^messages.'
 	response += response_tail
 	# send the given response
 	mention.reply(response)
