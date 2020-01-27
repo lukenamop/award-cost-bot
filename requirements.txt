@@ -1,0 +1,3 @@
+praw
+prawcore
+git+https://github.com/takluyver/Unidecode.git
