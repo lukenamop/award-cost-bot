@@ -56,11 +56,10 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 	else:
 		time_string = f'{d_string}, {h_string}'
 
+	# make sure there are awards on the given root submission
 	if len(root_submission.all_awardings) > 0:
 		response = 'Okay, nice'
 	else:
 		response = f'As of {time_string} since this post, it doesn\'t look like it has any awards. Feel free to try again later!'
-	# write a response
-	response = 'Yep, this works :)'
 	mention.reply(response)
 	print('responded to a mention')
