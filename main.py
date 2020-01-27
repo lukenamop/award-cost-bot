@@ -49,8 +49,8 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 	m, s = divmod(time_since_submission, 60)
 	h, m = divmod(m, 60)
 	d, h = divmod(h, 24)
-	h_string = format_time(h, 'h')
-	d_string = format_time(d, 'd')
+	h_string = format_time(int(h), 'h')
+	d_string = format_time(int(d), 'd')
 	if d_string == '' or h_string == '':
 		time_string = f'{d_string}{h_string}'
 	else:
@@ -58,8 +58,12 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 
 	# make sure there are awards on the given root submission
 	if len(root_submission.all_awardings) > 0:
-		response = 'Okay, nice'
+		coin_total = 0
+		for award in root_submission.all_awardings:
+			coin_total += 1
 	else:
-		response = f'As of {time_string} since this post, it doesn\'t look like it has any awards. Feel free to try again later!'
+		response = f'As of {time_string} since this submission, it doesn\'t look like it has any awards. Feel free to try again later!'
+
+	# send the given response
 	mention.reply(response)
 	print('responded to a mention')
