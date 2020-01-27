@@ -9,3 +9,8 @@ R_CLIENT_SECRET = os.environ['REDDIT_CLIENT_SECRET']
 R_PASSWORD = os.environ['REDDIT_PASSWORD']
 R_USERNAME = os.environ['REDDIT_USERNAME']
 R_USER_AGENT = 'heroku:award-cost-bot (by /u/lukenamop)'
+
+# coin quantity assumption
+COIN_QUANT = 1800
+# coin price assumption
+QUANT_PRICE = 5.99

@@ -60,10 +60,15 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 	if len(root_submission.all_awardings) > 0:
 		coin_total = 0
 		for award in root_submission.all_awardings:
-			coin_total += 1
+			coin_total += int(award['coin_price']) * int(award['count'])
+
+		cash_total = ceil(coin_total / config.COIN_QUANT) * config.QUANT_PRICE
+		response = f'The estimated price of awards on this submission is ${cash_total}, as of {time_string} since it was posted.'
 	else:
 		response = f'As of {time_string} since this submission, it doesn\'t look like it has any awards. Feel free to try again later!'
 
+	reponse_tail = '\n\n^^^Please ^^^DM ^^^me ^^^if ^^^there ^^^is ^^^a ^^^problem! ^^^A ^^^human ^^^will ^^^receive ^^^direct ^^^messages.'
+	response += response_tail
 	# send the given response
 	mention.reply(response)
 	print('responded to a mention')
