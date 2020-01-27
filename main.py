@@ -30,7 +30,8 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 
 	# check to see if the root submission has any awards
 	root_submission = mention.submission
-	if root_submission.
+	if len(root_submission.all_awardings) > 0:
+		response = 'Okay, nice'
 	# write a response
 	response = 'Yep, this works :)'
 	mention.reply(response)
