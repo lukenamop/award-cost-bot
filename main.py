@@ -29,3 +29,4 @@ for mention in praw.models.util.stream_generator(mentions, skip_existing=True):
 	# write a response
 	response = 'Yep, this works :)'
 	mention.reply(response)
+	print('responded to a mention')
