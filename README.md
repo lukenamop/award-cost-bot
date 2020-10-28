@@ -4,7 +4,7 @@ This is the source code for <a href="https://www.reddit.com/user/award-cost-bot"
 
 # Award Leaderboards
 
-The bot keeps track of leaderboards for the <a href="https://redd.it/euxitc/">highest priced submissions</a> and <a href="https://redd.it/euxinc/">highest priced comments</a> from around Reddit. These leaderboards are constantly updated as the bot continues to be mentioned in new submissions and comments.
+The bot keeps track of leaderboards for the <a href="https://redd.it/euxitc/">highest priced submissions</a> and <a href="https://redd.it/euxinc/">highest priced comments</a> from around Reddit. These leaderboards are constantly updated as the bot continues to be mentioned on new submissions and comments.
 
 # FAQ
 
@@ -18,4 +18,4 @@ I use data fetched directly from Reddit's API so it is as accurate as possible. 
 
 ## How can I contact you?
 
-If you have any questions or comments, feel free to reach out to me on Reddit by direct messaging me directly (<a href="https://www.reddit.com/message/compose/?to=lukenamop&subject=u%2Faward-cost-bot">u/lukenamop</a>). Thanks for your interest!
+If you have any questions or comments, feel free to reach out to me on Reddit by messaging me directly (<a href="https://www.reddit.com/message/compose/?to=lukenamop&subject=u%2Faward-cost-bot">u/lukenamop</a>). Thanks for your interest!
