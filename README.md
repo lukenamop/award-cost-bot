@@ -6,6 +6,8 @@ This is the source code for <a href="https://www.reddit.com/user/award-cost-bot"
 
 The bot keeps track of leaderboards for the <a href="https://redd.it/euxitc/">highest priced submissions</a> and <a href="https://redd.it/euxinc/">highest priced comments</a> from around Reddit. These leaderboards are constantly updated as the bot continues to be mentioned in new submissions and comments.
 
+# FAQ
+
 ## How do I use the bot?
 
 Mention the bot with "u/award-cost-bot" on any submission or comment and it will quickly respond with the total coins spent, a USD cost estimate, and the amount of Reddit Premium the author received from the awards.
