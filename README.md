@@ -12,7 +12,7 @@ The bot keeps track of leaderboards for the <a href="https://redd.it/euxitc/">hi
 
 Mention the bot with "u/award-cost-bot" on any submission or comment and it will quickly respond with the total coins spent, a USD cost estimate, and the amount of Reddit Premium the author received from the awards.
 
-## Are you sure this calculation is correct?
+## Are you sure these calculations are correct?
 
 I use data fetched directly from Reddit's API so it is as accurate as possible. I make the assumption that most coins are bought at the 1800 coins / $5.99 price to estimate the cash value of the awards.
 
