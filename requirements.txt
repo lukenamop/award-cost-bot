@@ -1,3 +1,4 @@
 praw
 prawcore
+psycopg2
 git+https://github.com/takluyver/Unidecode.git
